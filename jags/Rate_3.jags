@@ -1,0 +1,8 @@
+# Infering a Rate
+model{
+# Prior Distribution of Rate Theta
+theta ~ dbeta(1, 1)
+# Observed Counts
+k1 ~ dbin(theta, n1)
+k2 ~ dbin(theta, n2)
+}
