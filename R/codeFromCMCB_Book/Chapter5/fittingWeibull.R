@@ -12,7 +12,10 @@ params <- rbind(shift,scale,shape)
 print(rowMeans(params))
 
 # rows are participants, columns are observations
-dat <- apply(params, 2, function(x) rweibull(nobs,shape=x[3],scale=x[2])+x[1]) #* \label{line:MultipleParticipants:gendata}  *\#
+dat <- apply(params, 2, 
+             function(x) rweibull(nobs,
+                                  shape=x[3],
+                                  scale=x[2])+x[1]) #* \label{line:MultipleParticipants:gendata}  *\#
 
 # calculate sample quantiles for each particpant
 kk <- apply(dat, 2, function(x) quantile(x, probs=q_p))
