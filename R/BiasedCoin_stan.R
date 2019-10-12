@@ -8,7 +8,8 @@
 #**************************************************************************
 # packages used -----------------------------------------------------------
 library(rstan)
-
+options(mc.cores = parallel::detectCores())
+stan_options(auto_write = TRUE)
 rm(list = ls())  
 
 data1 <- list(

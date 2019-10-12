@@ -2,7 +2,9 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/ParameterEstimation/Gaussian")
+projdir <- getwd()
+setwd("Models/Bayesian_Cognitive_Modeling/ParameterEstimation/Gaussian/Gaussian/")
+
 
 library(R2jags)
 
@@ -19,7 +21,7 @@ parameters <- c("mu", "sigma")
 # The following command calls JAGS with specific options.
 # For a detailed description see the R2jags documentation.
 samples <- jags(data, inits=myinits, parameters,
-	 			 model.file="Gaussian.txt", n.chains=1, n.iter=1000, 
+	 			 model.file="Gaussian.jags", n.chains=1, n.iter=1000, 
          n.burnin=1, n.thin=1, DIC=T)
 # Now the values for the monitored parameters are in the "samples" object, 
 # ready for inspection.
@@ -27,3 +29,7 @@ samples <- jags(data, inits=myinits, parameters,
 mu    <- samples$BUGSoutput$sims.list$mu
 sigma <- samples$BUGSoutput$sims.list$sigma 
 
+plot(density((mu)))
+plot(density(sigma))
+
+setwd(projdir)
