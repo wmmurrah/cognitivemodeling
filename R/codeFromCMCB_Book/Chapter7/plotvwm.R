@@ -1,10 +1,10 @@
 #plot some vwm data
-source("MixModel.R")
+source("R/codeFromCMCB_Book/Chapter7/mixModel.R")
 
 #choose data source by commenting out the undesired one
 #fn <- "colorSubjccFromvdb2012.dat"
 # you will need to obtain the data from Zhang and Luck (2008)
-fn <- "zhl08subj1.dat"
+fn <- "R/codeFromCMCB_Book/Chapter7/zhl08subj1.dat"
 vwmerrors <- read.table(fn,sep=",",col.names=c("setsize","errors"))
 vwmerrors$errdiscrete<-cut(vwmerrors$error,breaks=seq(from=-180,to=180,by=20),labels=FALSE)
 npss <- mean(as.numeric(table(vwmerrors$setsize)))

@@ -3,7 +3,7 @@ burnin<- 2000
 
 chain <- rep(0,10000)
 obs <- 140
-propsd <- 12     #tuning parameter
+propsd <- 20   #tuning parameter
 sdv <- 15
 
 chain[1] <- 500  #starting value
