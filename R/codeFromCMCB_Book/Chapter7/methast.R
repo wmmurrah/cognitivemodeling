@@ -1,18 +1,19 @@
 #perform MCMC
-burnin<-1000
+burnin<- 2000
 
-chain <- rep(0,5000)
+chain <- rep(0,10000)
 obs <- 140
-propsd <- 20     #tuning parameter
+propsd <- 12     #tuning parameter
+sdv <- 15
 
 chain[1] <- 500  #starting value
 for (i in 2:length(chain)) {
     current <- chain[i-1]
     proposal <- current + rnorm(1,0,propsd)
-    if (dnorm(obs,proposal,15) > dnorm(obs,current,15)) { 
+    if (dnorm(obs,proposal, sdv) > dnorm(obs,current, sdv)) { 
        chain[i] <- proposal  #accept proposal
     } else {
-       chain[i] <- ifelse(runif(1) < dnorm(obs,proposal,15)/dnorm(obs,current,15),  
+       chain[i] <- ifelse(runif(1) < dnorm(obs,proposal, sdv)/dnorm(obs,current,sdv),  
                           proposal, 
                           current)
     }
