@@ -40,7 +40,8 @@ nbs <- 1000
 bsparms <- matrix(NA,nbs,length(sparms))
 bspow_pred <- pout$par["a"] *(pout$par["b"]*ri + 1)^(-pout$par["c"])
 for (i in c(1:nbs)) {   
-  recsynth     <- vapply(bspow_pred, FUN=function(x) mean(rbinom(ns,1,x)), numeric(1))
+  recsynth     <- vapply(bspow_pred, FUN=function(x) mean(rbinom(ns,1,x)),
+                         numeric(1))
   bsparms[i,]  <- unlist(optim(pout$par,powdiscrep,rec=recsynth,ri=ri)$par)
 }
 
