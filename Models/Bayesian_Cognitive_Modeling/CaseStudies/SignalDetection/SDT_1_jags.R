@@ -2,7 +2,7 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/CaseStudies/SignalDetection")
+setwd("Models/Bayesian_Cognitive_Modeling/CaseStudies/SignalDetection")
 library(R2jags)
 
 dataset <- 1
@@ -132,6 +132,3 @@ lines(density(f3), lwd=2, col="blue", lty=2)
 
 mtext("Probability Density", side=2, line = 2, cex=1.5, las=0)
 mtext("False-Alarm Rate", side=1, line = 2.5, cex=1.5)
-
-
-

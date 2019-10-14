@@ -1,5 +1,3 @@
-#gibbs sampler
-
 require(mvtnorm)
 require(MASS)
 

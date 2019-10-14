@@ -22,8 +22,8 @@ transformed parameters {
   
   // Reparameterization Using Equal-Variance Gaussian SDT
   for(i in 1:k) {
-    thetah[i] <- Phi(d[i] / 2 - c[i]);
-    thetaf[i] <- Phi(-d[i] / 2 - c[i]);
+    thetah[i] = Phi(d[i] / 2 - c[i]);
+    thetaf[i] = Phi(-d[i] / 2 - c[i]);
   }
 }
 model {
@@ -70,7 +70,7 @@ parameters <- c("c", "d", "thetaf", "thetah")
 
 # The following command calls Stan with specific options.
 # For a detailed description type "?rstan".
-samples <- stan(model_code=model,   
+ssamples <- stan(model_code=model,   
                 data=data, 
                 init=myinits,  # If not specified, gives random inits
                 pars=parameters,
@@ -83,21 +83,21 @@ samples <- stan(model_code=model,
 # Now the values for the monitored parameters are in the "samples" object, 
 # ready for inspection.
 
-d1 <- extract(samples)$d[,1]
-d2 <- extract(samples)$d[,2]
-d3 <- extract(samples)$d[,3]
+d1 <- extract(ssamples)$d[,1]
+d2 <- extract(ssamples)$d[,2]
+d3 <- extract(ssamples)$d[,3]
 
-c1 <- extract(samples)$c[,1]
-c2 <- extract(samples)$c[,2]
-c3 <- extract(samples)$c[,3]
+c1 <- extract(ssamples)$c[,1]
+c2 <- extract(ssamples)$c[,2]
+c3 <- extract(ssamples)$c[,3]
 
-h1 <- extract(samples)$thetah[,1]
-h2 <- extract(samples)$thetah[,2]
-h3 <- extract(samples)$thetah[,3]
+h1 <- extract(ssamples)$thetah[,1]
+h2 <- extract(ssamples)$thetah[,2]
+h3 <- extract(ssamples)$thetah[,3]
 
-f1 <- extract(samples)$thetaf[,1]
-f2 <- extract(samples)$thetaf[,2]
-f3 <- extract(samples)$thetaf[,3]
+f1 <- extract(ssamples)$thetaf[,1]
+f2 <- extract(ssamples)$thetaf[,2]
+f3 <- extract(ssamples)$thetaf[,3]
 
 #make the four panel plot:
 layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
