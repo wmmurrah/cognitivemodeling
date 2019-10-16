@@ -12,6 +12,7 @@ sigma <- matrix(c(sigx^2,rho*sigx*sigy,rho*sigy*sigx,sigy^2),
 fiftyticks <- seq(from=-3, to =3, length.out=50) 
 y<-rep(fiftyticks,50)
 x<-rep(fiftyticks,each=50)
+set.seed(1234)
 z<-matrix( dmvnorm(cbind(y,x),c(mux,muy),sigma),50,50)
 contour(list(x=fiftyticks,y=fiftyticks,z=z),
         ylim=c(-3,3),xlim=c(-3,3),drawlabels=FALSE) 
@@ -42,5 +43,5 @@ bivn<-rmvnorm(1000,rep(0,2),sigma)
 apply(bivn,2,mean)
 apply(bivn,2,sd)
 cor.test(bivn[,1],bivn[,2])
-
+ 
 
