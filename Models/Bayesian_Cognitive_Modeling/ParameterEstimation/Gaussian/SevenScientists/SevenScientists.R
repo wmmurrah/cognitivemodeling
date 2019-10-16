@@ -2,7 +2,8 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/ParameterEstimation/Gaussian")
+projdir <- getwd()
+setwd("Models/Bayesian_Cognitive_Modeling/! other/rstan all in one scripts backup/ParameterEstimation/ParameterEstimation/Gaussian")
 
 library(R2WinBUGS)
 bugsdir <- "C:/Program Files/WinBUGS14"

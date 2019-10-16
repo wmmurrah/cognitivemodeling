@@ -2,7 +2,8 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/ParameterEstimation/Gaussian")
+projdir <- getwd()
+setwd("Models/Bayesian_Cognitive_Modeling/ParameterEstimation/Gaussian/SevenScientists/")
 
 library(R2jags)
 
@@ -24,4 +25,6 @@ samples <- jags(data, inits=myinits, parameters,
 # Now the values for the monitored parameters are in the "samples" object, 
 # ready for inspection.
 
+setwd(projdir)
 
+samples
