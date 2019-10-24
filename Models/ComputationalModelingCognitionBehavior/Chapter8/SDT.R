@@ -1,4 +1,7 @@
 library(rjags)
+
+projdir <- getwd()
+setwd("Models/ComputationalModelingCognitionBehavior/Chapter8/")
 #provide data from experiment
 h <- 60         
 f <- 11
@@ -22,3 +25,5 @@ mcmcfin<-coda.samples(sdtj,parameters,5000)
 summary(mcmcfin)
 plot(mcmcfin)
 gelman.plot(mcmcfin)
+
+setwd(projdir)

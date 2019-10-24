@@ -1,0 +1,36 @@
+digraph sdt_hier2 {
+  graph[overlap = false, fontsize = 7, spline = true, 
+  compound=true, rankdir = tb, layout = dot]
+  node[shape = circle]
+  mub[label = <<I>&mu;<sub>b</sub></I>>]
+  taub[label = <<I>&tau;<sub>b</sub></I>>]
+  mud[label = <<I>&mu;<sub>d</sub></I>>]
+  taud[label = <<I>&tau;<sub>d</sub></I>>]
+  subgraph cluster {
+  node[shape = circle]
+  b[pos='10,4!', label = <<I>b<sub>i</sub></I>>]
+  d[pos='2,4!', label = <<I>d<sub>i</sub></I>>]
+  phih[pos='1,3!', label = <<I>&Phi;<sub>h,i</sub></I>>]
+  phif[pos='2,3!', label = <<I>&Phi;<sub>f,i</sub></I>>]
+  node[shape = square, style = filled, fillcolor = grey]
+  h[pos='1,2!', label = <<I>h<sub>i</sub></I>>]
+  f[pos='2,2!', label = <<I>f<sub>i</sub></I>>]
+  label = <<I>i = 1,.....n</I>>
+  style = rounded
+  labelloc = b
+  labeljust = c
+  }
+  node[shape = square, style = filled, fillcolor = grey]  
+  s[label = <<I>S</I>>]
+  N[label = <<I>N</I>>]
+  mud -> d
+  taud -> d
+  mub -> b
+  taub -> b
+  b -> phih
+  d -> phif
+  phih -> h
+  phif -> f
+  s -> h
+  N -> f
+}
