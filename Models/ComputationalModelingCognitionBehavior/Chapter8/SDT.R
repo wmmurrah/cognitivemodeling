@@ -1,4 +1,6 @@
 library(rjags)
+projdir <- getwd()
+setwd("Models/ComputationalModelingCognitionBehavior/Chapter8/")
 #provide data from experiment
 h <- 60         
 f <- 11
@@ -8,7 +10,7 @@ sigtrials <- noistrials <- 100
 oneinit <- list(d=0, b=0)   
 myinits <- list(oneinit)[rep(1,4)]
 myinits <- lapply(myinits,FUN=function(x) lapply(x, FUN=function(y) y+rnorm(1,0,.1)))
-sdtj <- jags.model("SDT.j", 
+sdtj <- jags.model("SDT.jags", 
                    data = list("h"=h, "f"=f, 
                                "sigtrials"=sigtrials,"noistrials"=noistrials),
                    inits=myinits,
