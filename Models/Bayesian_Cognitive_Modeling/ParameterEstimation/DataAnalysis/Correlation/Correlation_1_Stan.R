@@ -25,12 +25,12 @@ transformed parameters {
   cov_matrix[2] T;
 
   // Reparameterization
-  sigma[1] <- inv_sqrt(lambda[1]);
-  sigma[2] <- inv_sqrt(lambda[2]);
-  T[1,1] <- square(sigma[1]);
-  T[1,2] <- r * sigma[1] * sigma[2];
-  T[2,1] <- r * sigma[1] * sigma[2];
-  T[2,2] <- square(sigma[2]);
+  sigma[1] = inv_sqrt(lambda[1]);
+  sigma[2] = inv_sqrt(lambda[2]);
+  T[1,1] = square(sigma[1]);
+  T[1,2] = r * sigma[1] * sigma[2];
+  T[2,1] = r * sigma[1] * sigma[2];
+  T[2,2] = square(sigma[2]);
 }
 model {
   // Priors
@@ -118,7 +118,8 @@ layout.show(2)
 par(cex.main=1.5, mar=c(5, 6, 4, 5) + 0.1, mgp=c(3.5, 1, 0), cex.lab=1.5,
     font.lab=2, cex.axis=1.3, bty = "n", las=1)
 # data panel:    
-plot(x[,1],x[,2], type="p", pch=19, cex=1)
+plot(x[,1],x[,2], type="p", pch=19, cex=1, xlab = "Response Time (sec)",
+     ylab = "IQ", xlim = c(0, 1.5), ylim = c(85, 115))
 # correlation panel:
 plot(density(r, from=-1,to=1), main="", ylab="Posterior Density", 
      xlab="Correlation", lwd=2)

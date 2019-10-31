@@ -2,7 +2,8 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/ParameterEstimation/DataAnalysis")
+projdir <- getwd()
+setwd("Models/Bayesian_Cognitive_Modeling/ParameterEstimation/DataAnalysis/Correlation/")
 
 library(R2jags)
 
@@ -43,7 +44,8 @@ layout.show(2)
 par(cex.main = 1.5, mar = c(5, 6, 4, 5) + 0.1, mgp = c(3.5, 1, 0), cex.lab = 1.5,
     font.lab = 2, cex.axis = 1.3, bty = "n", las=1)
 # data panel:    
-plot(x[,1],x[,2], type="p", pch=19, cex=1)
+plot(x[,1],x[,2], type="p", pch=20, cex=1, xlab = "Response Time (sec)",
+     ylab = "IQ", xlim = c(0, 1.5), ylim = c(85, 115))
 for (i in 1:n)
 {
   lines(c(x[i,1]-sigmaerror[1],x[i,1]+sigmaerror[1]), c(x[i,2],x[i,2]))
@@ -53,3 +55,4 @@ for (i in 1:n)
 plot(density(r, from=-1,to=1), main="", ylab="Posterior Density", xlab="Correlation", lwd=2)
 lines(c(freq.r, freq.r), c(0,100), lwd=2, lty=2)
 
+setwd(projdir)
