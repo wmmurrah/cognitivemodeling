@@ -1,4 +1,6 @@
 library(rjags)
+projdir <- getwd()
+setwd("Models/ComputationalModelingCognitionBehavior/Chapter8/")
 #provide data from experiment
 h <- 60          
 f <- 11
@@ -14,7 +16,7 @@ onehtj <- jags.model("1HT.j",
 update(onehtj,n.iter=1000)  
 # perform MCMC
 parameters <- c("th1", "th2", "predh", "predf")
-mcmcfin<-coda.samples(onehtj,parameters,5000)  
+mcmcfin<-coda.samples(onehtj,parameters, 1e5, thin = 10)  
 
 summary(mcmcfin)
 x11()
@@ -22,9 +24,5 @@ plot(mcmcfin)
 x11()
 acfplot(mcmcfin)
 gelman.plot(mcmcfin)
-
-
-
-
-
-
+effectiveSize(mcmcfin)
+setwd(projdir)
