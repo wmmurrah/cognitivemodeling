@@ -55,4 +55,3 @@ for (i in 1:n)
 plot(density(r2, from=-1,to=1), main="", ylab="Posterior Density", 
      xlab="Correlation", lwd=2)
 lines(c(freq.r, freq.r), c(0,100), lwd=2, lty=2)
-
