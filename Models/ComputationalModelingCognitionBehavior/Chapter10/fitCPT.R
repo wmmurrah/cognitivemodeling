@@ -1,3 +1,6 @@
+projdir <- getwd()
+setwd("Models/ComputationalModelingCognitionBehavior/Chapter10/")
+
 source("cumulPT.R")
 library(dfoptim)
 

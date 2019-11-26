@@ -132,3 +132,6 @@ lines(density(f3), lwd=2, col="blue", lty=2)
 
 mtext("Probability Density", side=2, line = 2, cex=1.5, las=0)
 mtext("False-Alarm Rate", side=1, line = 2.5, cex=1.5)
+
+
+dat <- as.data.frame(samples$BUGSoutput$sims.matrix)

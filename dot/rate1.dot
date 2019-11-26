@@ -8,3 +8,4 @@ digraph r1 {
   theta -> k
   n -> k
 }
+  

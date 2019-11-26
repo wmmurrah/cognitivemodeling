@@ -11,7 +11,7 @@ digraph r1 {
   f[pos='2,2!', label = <<I>f<sub>i</sub></I>>]
   s[label = <<I>S<sub>i</sub></I>>]
   N[label = <<I>N<sub>i</sub></I>>]  
-  label = <<I>i = 1,.....n</I>>
+  label = <<I>i = 1,..n</I>>
   style = rounded
   labelloc = b
   labeljust = r
