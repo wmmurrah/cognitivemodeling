@@ -50,8 +50,8 @@ samples <- stan(model_code=model,
                 iter=10000, 
                 chains=2, 
                 thin=1,
-                # warmup = 100,  # Stands for burn-in; Default = iter/2
-                # seed = 123  # Setting seed; Default is random seed
+                warmup = 100,  # Stands for burn-in; Default = iter/2
+                 seed = 123  # Setting seed; Default is random seed
                 )
 # Now the values for the monitored parameters are in the "samples" object, 
 # ready for inspection.
