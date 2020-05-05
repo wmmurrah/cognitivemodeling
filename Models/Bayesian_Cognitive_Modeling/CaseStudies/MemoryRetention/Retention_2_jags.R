@@ -2,7 +2,7 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/CaseStudies/MemoryRetention")
+#setwd("/CaseStudies/MemoryRetention")
 library(R2jags)
 
 t     <- c(1, 2, 4, 7, 12, 21, 35, 59, 99, 200)
@@ -116,5 +116,3 @@ for (i in 1:ns) {
 	jj <- numeric()
 	xx <- numeric()
 }
-
-

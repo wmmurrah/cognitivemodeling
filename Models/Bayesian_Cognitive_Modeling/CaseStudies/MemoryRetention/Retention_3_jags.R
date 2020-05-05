@@ -8,7 +8,7 @@
 rm(list=ls()) 
 
 # sets working directories:
-setwd("C:/Users/EJ/Dropbox/EJ/temp/BayesBook/test/CaseStudies/MemoryRetention")
+setwd("~/Learning/CognitiveModeling/Models/Bayesian_Cognitive_Modeling/CaseStudies/MemoryRetention")
 library(R2jags)
 
 t     <- c(1, 2, 4, 7, 12, 21, 35, 59, 99, 200)
