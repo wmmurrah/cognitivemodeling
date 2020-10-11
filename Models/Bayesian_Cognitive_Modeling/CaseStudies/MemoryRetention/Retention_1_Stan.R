@@ -22,7 +22,7 @@ transformed parameters {
   // Retention Rate At Each Lag For Each Subject Decays Exponentially
   for (i in 1:ns) {
     for (j in 1:nt) {
-      theta[i,j] <- fmin(1, exp(-alpha * t[j]) + beta);
+      theta[i,j] = fmin(1, exp(-alpha * t[j]) + beta);
     }
   }
 }
@@ -42,7 +42,7 @@ generated quantities {
   // Predicted Data
   for (i in 1:ns)
     for (j in 1:nt)
-      predk[i,j] <- binomial_rng(n, theta[i,j]);
+      predk[i,j] = binomial_rng(n, theta[i,j]);
 }"
 
 t     <- c(1, 2, 4, 7, 12, 21, 35, 59, 99, 200)

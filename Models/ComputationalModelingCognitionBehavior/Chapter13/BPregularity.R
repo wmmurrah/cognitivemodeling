@@ -4,25 +4,24 @@ logistic_act <- function(x){
   return(1/(1+exp(-x)))
 }
 
-nStem <- 10
-nEnd <- 20
-nIn <- nStem + nEnd
-nHid <- 15
-nOut <- 30
+nStem <- 10           # pattern stems
+nEnd <- 20            # pattern endings
+nIn <- nStem + nEnd   # input layer units
+nHid <- 15            # number of hidden units
+nOut <- 30            # number of output units
 
-nSets <- 5
-nReg <- 4
-nIrreg <- 1
-nPatterns <- nSets*(nReg + nIrreg)
+nSets <- 5            # number of training sets
+nReg <- 4             # number of regulars in training set
+nIrreg <- 1           # number of irregulars in training set
+nPatterns <- nSets*(nReg + nIrreg) 
 
 inputs <- {}
 outputs <- {}
 
-nTrain <- 6000
+nTrain <- 6000        # number of training trials
 
-eta <- 0.1
-m <- 0.9
-
+eta <- 0.1 # learning rate
+m <- 0.9   # momentum parameter
 
 for (tset in 1:nSets){
   
@@ -40,9 +39,12 @@ for (tset in 1:nSets){
   outputs <- rbind(outputs, rbinom(nOut,1,0.5))
 }
 
+# Weights: input to hidden.
 Wih <- matrix(rnorm(nIn*nHid)*.01, nrow=nHid)
+# Weights: hidden to output.
 Who <- matrix(rnorm(nHid*nOut)*.01, nrow=nOut)
 
+# Bias units
 Bh <- rep(.01, nHid)
 Bo <- rep(.01, nOut)
 

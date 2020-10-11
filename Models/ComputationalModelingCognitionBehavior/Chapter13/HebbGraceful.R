@@ -69,7 +69,7 @@ for (rep in 1:nReps){
 }# end reps loop
 
 #pdf("HebbGraceful.pdf", width=5, height=5)
-plot(stimSimSet,accuracy/nReps, type="b",
+plot(stimSimSet,accuracy/nReps, type="b", ylim = c(0, 1),
      xlab="Stimulus-Cue Similarity",
      ylab="Cosine")
 #dev.off()
